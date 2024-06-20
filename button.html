@@ -1,0 +1,296 @@
+<html>
+<head>
+  <style>
+    @font-face {
+      font-family: 'LetteraText';
+      src: url('https://instagrid.co/fonts/LetteraTextLLWeb-Regular.woff2') format('woff2');
+      font-weight: normal;
+      font-style: normal;
+      font-display: block;
+    }
+    
+    :root {
+      box-sizing: border-box;
+      font-size: 16px;
+      font-family: LetteraText, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      
+      --instagrid-red: #ff401d;
+      --night: #262b2b;
+      
+      --red-700: #b81c00;
+      --red-600: #eb2400;
+      
+      --grey-900: #292929;
+      --grey-800: #424242;
+    }
+    
+    .bg-off-white { background-color: #fcf9f2; }
+    
+    .bg-grey { background-color: #dbdbdb; }
+    
+    .bg-soil { background-color: #bfaf9f; }
+    
+    .bg-sand { background-color: #f0e8df; }
+    
+    body {
+      margin: 0;
+      padding: 0;
+    }
+    
+    *,
+    *::before,
+    *::after {
+      box-sizing: inherit;
+    }
+    
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+    
+    main {
+      display: flex;
+      flex-direction: column;
+    }
+    
+    article {
+      display: flex;
+      flex-direction: column;
+    }
+    
+    header {
+      background-color: pink;
+      padding: 0 40px;
+    }
+    
+    section {
+      display: flex;
+      flex-direction: row;
+      align-items: start;
+      gap: 32px;
+      padding: 40px;
+    }
+    
+    /* 
+      button 
+    */
+    
+    .button {
+      background-color: transparent;
+      border: 1px solid transparent;
+      border-radius: 666px;
+      color: inherit;
+      display: inline-block;
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 24px;
+      letter-spacing: -.01em;
+      white-space: nowrap;
+      
+      /* Take border into account .. */
+      padding: calc(16px - 1px) 32px;
+    }
+    
+    .button-primary {
+      background-color: var(--instagrid-red);
+      border-color: var(--instagrid-red);
+      color: #fff;
+    }
+    
+    .button-primary:hover {
+      background-color: var(--red-600);
+      border-color: var(--red-600);
+    }
+    
+    .button-primary:active {
+      background-color: var(--red-700);
+      border-color: var(--red-700);
+    }
+    
+    .button-secondary {
+      background-color: var(--night);
+      border-color: var(--night);
+      color: #fff;
+    }
+    
+    .button-secondary:hover {
+      background-color: var(--grey-800);
+      border-color: var(--grey-800);
+    }
+    
+    .button-secondary:active {
+      background-color: var(--grey-900);
+      border-color: var(--grey-900);
+    }
+    
+    .button-line {
+      background-color: transparent;
+      border-color: var(--night);
+      color: var(--night);
+    }
+    
+    .button-line:hover {
+      border-color: var(--grey-800);
+      color: var(--grey-800);
+    }
+    
+    .button-line:active {
+      border-color: var(--grey-900);
+      color: var(--grey-900);
+    }
+    
+    .button-text {
+      background-color: transparent;
+      border-color: transparent;
+      color: var(--night);
+    }
+    
+    .button-text:hover {
+      color: #ff6c52;
+    }
+    
+    .button-text:active {
+      color: var(--red-700);
+    }
+    
+    /* 
+      btn 
+    */
+    
+    .btn {
+      background-color: transparent;
+      border: 1px solid transparent;
+      border-radius: 666px;
+      color: inherit;
+      display: inline-block;
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 24px;
+      letter-spacing: -.01em;
+      white-space: nowrap;
+      
+      /* Take border into account .. */
+      padding: calc(16px - 1px) 32px;
+    }
+    
+    .btn-primary {
+      background-color: var(--instagrid-red);
+      border-color: var(--instagrid-red);
+      color: #fff;
+    }
+    
+    .btn-primary:hover {
+      background-color: var(--red-600);
+      border-color: var(--red-600);
+    }
+    
+    .btn-primary:active {
+      background-color: var(--red-700);
+      border-color: var(--red-700);
+    }
+    
+    .btn-primary:focus-visible {
+      outline: 2px solid var(--red-700);
+      outline-offset: 4px;
+    }
+    
+    .btn-secondary {
+      background-color: transparent;
+      border-color: var(--night);
+      color: var(--night);
+    }
+    
+    .btn-secondary:hover {
+      background-color: var(--red-600);
+      border-color: var(--red-600);
+      color: #fff;
+    }
+    
+    .btn-secondary:active {
+      background-color: var(--red-700);
+      border-color: var(--red-700);
+      color: #fff;
+    }
+    
+    .btn-secondary:focus-visible {
+      outline: 2px solid var(--grey-900);
+      outline-offset: 4px;
+    }
+    
+    .btn-text {
+      background-color: transparent;
+      border-color: transparent;
+      color: var(--night);
+      text-decoration: underline;
+      text-underline-offset: .3em;
+      text-decoration-thickness: 1px;
+    }
+    
+    .btn-text:hover {
+      color: var(--red-600);
+    }
+    
+    .btn-text:active {
+      color: var(--red-700);
+      background-color: rgb(82 12 0 / 5%);
+    }
+    
+    .btn-text:focus-visible {
+      outline: 2px solid var(--grey-900);
+      outline-offset: 4px;
+    }
+  </style>
+</head>
+<body>
+  
+  <main>
+    <article>
+      <header>current</header>
+      
+      <section>
+        <a href="#" class="button button-primary">Learn more</a>
+        <a href="#" class="button button-secondary">Learn more</a>
+        <a href="#" class="button button-line">Learn more</a>
+        <a href="#" class="button button-text">Learn more</a>
+      </section>
+    </article>
+    
+    <!-- revised -->
+    <article>
+      <header>revised</header>
+      
+      <section>
+        <a href="#" class="btn btn-primary">Learn more</a>
+        <a href="#" class="btn btn-secondary">Learn more</a>
+        <a href="#" class="btn btn-text">Learn more</a>
+      </section>
+
+      <section class="bg-off-white">
+        <a href="#" class="btn btn-primary">Learn more</a>
+        <a href="#" class="btn btn-secondary">Learn more</a>
+        <a href="#" class="btn btn-text">Learn more</a>
+      </section>
+
+      <section class="bg-grey">
+        <a href="#" class="btn btn-primary">Learn more</a>
+        <a href="#" class="btn btn-secondary">Learn more</a>
+        <a href="#" class="btn btn-text">Learn more</a>
+      </section>
+
+      <section class="bg-sand">
+        <a href="#" class="btn btn-primary">Learn more</a>
+        <a href="#" class="btn btn-secondary">Learn more</a>
+        <a href="#" class="btn btn-text">Learn more</a>
+      </section>
+
+      <section class="bg-soil">
+        <a href="#" class="btn btn-primary">Learn more</a>
+        <a href="#" class="btn btn-secondary">Learn more</a>
+        <a href="#" class="btn btn-text">Learn more</a>
+      </section>
+    </article>
+  </main>
+  
+</body>
+</html>
