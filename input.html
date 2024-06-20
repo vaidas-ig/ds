@@ -1,0 +1,328 @@
+<html>
+<head>
+  <style>
+    @font-face {
+      font-family: 'LetteraText';
+      src: url('https://instagrid.co/fonts/LetteraTextLLWeb-Regular.woff2') format('woff2');
+      font-weight: normal;
+      font-style: normal;
+      font-display: block;
+    }
+    
+    :root {
+      box-sizing: border-box;
+      font-size: 16px;
+      font-family: LetteraText, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      
+      --instagrid-red: #ff401d;
+      --night: #262b2b;
+      
+      --red-700: #b81c00;
+      --red-600: #eb2400;
+      
+      --grey-900: #292929;
+      --grey-800: #424242;
+    }
+    
+    body {
+      margin: 0;
+      padding: 0;
+    }
+    
+    *,
+    *::before,
+    *::after {
+      box-sizing: inherit;
+    }
+    
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+    
+    main {
+      display: flex;
+      flex-direction: row;
+      gap: 60px;
+      margin: 40px;
+    }
+    
+    section {
+      display: flex;
+      flex-direction: column;
+      align-items: start;
+      gap: 24px;
+    }
+    
+    /* ig-checkbox */
+    
+    .ig-checkbox {
+      box-sizing: content-box;
+      color: var(--night);
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+      gap: 12px;
+      height: 24px;
+    }
+    
+    .ig-checkbox input[type=checkbox] {
+      position: absolute;
+      visibility: hidden;
+      width: 20px;
+      height: 20px;
+    }
+    
+    .ig-checkbox > div {
+      padding: 4px;
+      margin-left: -4px;
+    }
+    
+    .ig-checkbox > div span {
+      background-color: rgba(0, 0, 0, 0);
+      border: 1.4px solid #262b2b;
+      border-radius: 5px;
+      display: block;
+      width: 20px;
+      height: 20px;
+    }
+    
+    .ig-checkbox > div span svg {
+      width: 100%;
+      height: 100%;
+      fill: none;
+    }
+    
+    .ig-checkbox input[type=checkbox]:checked ~ div > span {
+      background-color: var(--instagrid-red);
+      border: 1.4px solid var(--instagrid-red);
+    }
+    
+    .ig-checkbox input[type=checkbox]:checked ~ div > span svg {
+      fill: var(--instagrid-red);
+    }
+    
+    /* ig-checkbox-fixed */
+    
+    .ig-checkbox-fixed {
+      color: var(--night);
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+      gap: 16px;
+      height: 24px;
+    }
+    
+    .ig-checkbox-fixed input[type=checkbox] {
+      position: absolute;
+      visibility: hidden;
+      margin: 0; /* Removes user agent margins */
+      width: 24px;
+      height: 24px;
+    }
+    
+    .ig-checkbox-fixed > div {
+      padding: 3px;
+    }
+    
+    .ig-checkbox-fixed > div span {
+      background-color: rgba(0, 0, 0, 0);
+      border: 1.4px solid #262b2b;
+      border-radius: 3px;
+      box-sizing: content-box;
+      display: block;
+      width: 16px;
+      height: 16px;
+      position: relative;
+    }
+    
+    .ig-checkbox-fixed > div span svg {
+      width: 18px;
+      height: 18px;
+      fill: none;
+      position: absolute;
+      top: -1px;
+      left: -1px;
+    }
+    
+    .ig-checkbox-fixed input[type=checkbox]:checked ~ div > span {
+      background-color: var(--instagrid-red);
+      border: 1.4px solid var(--instagrid-red);
+    }
+    
+    .ig-checkbox-fixed input[type=checkbox]:checked ~ div > span svg {
+      fill: var(--instagrid-red);
+    }
+    
+    /* checkbox */
+    
+    .checkbox {
+      display: flex;
+      position: relative;
+    }
+    
+    .checkbox > input {
+      z-index: 1;
+      width: 24px;
+      height: 24px;
+      margin: 0;
+      padding: 0;
+      opacity: 0;
+      cursor: pointer;
+    }
+    
+    .checkbox > label {
+      align-self: center;
+      display: block;
+      cursor: pointer;
+      padding-left: 16px;
+      touch-action: manipulation;
+    }
+    
+    .checkbox > label::before,
+    .checkbox > label::after {
+      content: "";
+      box-sizing: border-box;
+      background: transparent;
+      border: 1px solid;
+      border-radius: 3px;
+      
+      /* can also be done with content-box sizing */
+      top: 3px;
+      left: 3px;
+      width: 18px;
+      height: 18px;
+      
+      position: absolute;
+    }
+    
+    .checkbox > label::before {
+      border-color: var(--night);
+    }
+    
+    .checkbox > label::after {
+      background-image: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIHZpZXdCb3g9IjAgMCAxNiAxNiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZmlsbC1ydWxlPSJldmVub2RkIiBjbGlwLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik0xMy44OTg5IDQuMTAxMDFDMTQuMjExMyA0LjQxMzQzIDE0LjIxMTMgNC45MTk5NyAxMy44OTg5IDUuMjMyMzhMNy4yMzIyMiAxMS44OTkxQzYuOTE5OCAxMi4yMTE1IDYuNDEzMjcgMTIuMjExNSA2LjEwMDg1IDExLjg5OTFMMi43Njc1MiA4LjU2NTcyQzIuNDU1MSA4LjI1MzMgMi40NTUxIDcuNzQ2NzcgMi43Njc1MiA3LjQzNDM1QzMuMDc5OTQgNy4xMjE5MyAzLjU4NjQ3IDcuMTIxOTMgMy44OTg4OSA3LjQzNDM1TDYuNjY2NTQgMTAuMjAyTDEyLjc2NzUgNC4xMDEwMUMxMy4wNzk5IDMuNzg4NTkgMTMuNTg2NSAzLjc4ODU5IDEzLjg5ODkgNC4xMDEwMVoiIGZpbGw9IndoaXRlIi8+Cjwvc3ZnPgo=");
+      background-color: var(--instagrid-red);
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: contain;
+      border-color: var(--instagrid-red);
+      opacity: 0;
+    }
+    
+    .checkbox > input:checked + label::after {
+      opacity: 1;
+    }
+    
+    /* radio */
+    
+    .radio {
+      display: flex;
+      position: relative;
+    }
+    
+    .radio > input {
+      z-index: 1;
+      width: 24px;
+      height: 24px;
+      margin: 0;
+      padding: 0;
+      opacity: 0;
+      cursor: pointer;
+    }
+    
+    .radio > label {
+      align-self: center;
+      display: block;
+      cursor: pointer;
+      padding-left: 16px;
+      touch-action: manipulation;
+    }
+    
+    .radio > label::before,
+    .radio > label::after {
+      content: "";
+      box-sizing: border-box;
+      background: transparent;
+      border: 1px solid;
+      border-radius: 50%;
+      position: absolute;
+    }
+    
+    .radio > label::before {
+      border-color: var(--night);
+      top: 3px;
+      left: 3px;
+      width: 18px;
+      height: 18px;
+    }
+    
+    .radio > label::after {
+      background-color: var(--instagrid-red);
+      border-color: var(--instagrid-red);
+      
+      /* = 24px */
+      top: 7px;
+      left: 7px;
+      width: 10px;
+      height: 10px;
+      
+      opacity: 0;
+    }
+    
+    .radio > input:checked + label::before {
+      border-color: var(--instagrid-red);
+    }
+    
+    .radio > input:checked + label::after {
+      opacity: 1;
+    }
+  </style>
+</head>
+<body>
+  
+  <main>
+    <section>
+      <label class="ig-checkbox">
+        <input type="checkbox" checked>
+        <div>
+          <span>
+            <svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M15.8989 6.10101C16.2113 6.41343 16.2113 6.91997 15.8989 7.23238L9.23222 13.8991C8.9198 14.2115 8.41327 14.2115 8.10085 13.8991L4.76752 10.5657C4.4551 10.2533 4.4551 9.74677 4.76752 9.43435C5.07994 9.12193 5.58647 9.12193 5.89889 9.43435L8.66654 12.202L14.7675 6.10101C15.0799 5.78859 15.5865 5.78859 15.8989 6.10101Z" fill="white"></path>
+            </svg>
+          </span>
+        </div>
+        Checked
+      </label>
+      
+      <label class="ig-checkbox-fixed">
+        <input type="checkbox" checked>
+        <div>
+          <span>
+            <svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M15.8989 6.10101C16.2113 6.41343 16.2113 6.91997 15.8989 7.23238L9.23222 13.8991C8.9198 14.2115 8.41327 14.2115 8.10085 13.8991L4.76752 10.5657C4.4551 10.2533 4.4551 9.74677 4.76752 9.43435C5.07994 9.12193 5.58647 9.12193 5.89889 9.43435L8.66654 12.202L14.7675 6.10101C15.0799 5.78859 15.5865 5.78859 15.8989 6.10101Z" fill="white"></path>
+            </svg>
+          </span>
+        </div>
+        Check fix
+      </label>
+    </section>
+    
+    <section>
+      
+      <div class="checkbox">
+        <input type="checkbox" id="name">
+        <label for="name">Check Me!</label>
+      </div>
+      
+      <div class="radio">
+        <input type="radio" id="option">
+        <label for="option">Option Me!</label>
+      </div>
+      
+    </section>
+  </main>
+  
+</body>
+</html>
